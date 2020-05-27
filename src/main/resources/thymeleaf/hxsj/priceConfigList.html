@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>价格配置列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+
+    <style>
+        body{
+            padding: 80px;
+            color: ghostwhite;
+            background-color: darkgray;
+        }
+    </style>
+
+    <script>
+        $(".delbnt").click(function () {
+            $("#delbnt").submit();
+            return false;
+        });
+    </script>
+</head>
+
+<body>
+<div class="table-responsive">
+    <table class="table table-hover border-1">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">父类型</th>
+            <th scope="col">子类型</th>
+            <th scope="col">价格</th>
+            <th scope="col">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="priceConfig : ${priceConfigs}">
+            <th th:text="${priceConfig.id}">id</th>
+            <td th:text="${priceConfig.parentType}">父类型</td>
+            <td th:text="${priceConfig.productType}">子类型</td>
+            <td th:text="${priceConfig.price}">价格</td>
+            <td>
+                <a type="button"  class="btn btn-info btn-lg" th:href="@{/toPriceConfig(id=${priceConfig.id})}">修改</a>
+
+                <form id="delbnt" th:action="@{/priceConfig/}+${priceConfig.id}" method="post">
+                    <input name="_method" hidden="true" value="delete">
+
+                    <button class="btn btn-danger btn-lg delbnt">删除</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a type="button"  class="btn btn-primary btn-lg" th:href="@{/toPriceConfig1}">添加</a>
+</div>
+
+
+</body>
+
+</html>

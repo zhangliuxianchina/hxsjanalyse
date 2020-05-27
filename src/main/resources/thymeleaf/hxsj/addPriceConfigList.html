@@ -1,0 +1,56 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>价格配置列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <style>
+        body{
+            padding: 80px;
+            color: ghostwhite;
+            background-color: darkgray;
+        }
+    </style>
+</head>
+
+<body>
+<div class="table-responsive">
+
+    <form th:action="@{/priceConfig}" method="post">
+
+
+        <input type="hidden" name="_method" value="put" th:if="${priceConfig!=null}"/>
+        <input type="hidden" name="id" th:if="${priceConfig!=null}" th:value="${priceConfig.id}" >
+
+        <div class="form-group">
+            <label for="id">id</label>
+            <input name="id"  class="form-control" readonly="true"  th:value="${priceConfig != null} ?  ${priceConfig.id}" id="id" placeholder="id">
+        </div>
+
+        <div class="form-group">
+            <label for="parentType">parentType</label>
+            <select class="form-control" id="parentType" name="parentType">
+                <option th:selected="${priceConfig != null}?${parentT == priceConfig.parentType}" th:value="${parentT}"  th:each="parentT:${parentTypes}" th:text="${parentT}">1</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="productType">productType</label>
+            <input name="productType"  th:value="${priceConfig != null } ?  ${ priceConfig.productType}" class="form-control" id="productType" placeholder="productType">
+        </div>
+        <div class="form-group">
+            <label for="price">price</label>
+            <input name="price" th:value="${priceConfig != null} ? ${priceConfig.price}" class="form-control" id="price" placeholder="price">
+        </div>
+
+        <button type="submit" th:text="${priceConfig == null?'添加':'修改'}"   class="btn btn-success">添加</button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
