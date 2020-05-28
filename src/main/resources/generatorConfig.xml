@@ -41,7 +41,7 @@
         </javaClientGenerator>
 
         <!-- 生成表： tableName 表名或视图名 、domainObjectName 实体类名  -->
-        <table tableName="hxsj_parent_type_config" domainObjectName="ParentTypeConfig">
+        <table tableName="hxsj_price_config" domainObjectName="PriceConfig">
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
 

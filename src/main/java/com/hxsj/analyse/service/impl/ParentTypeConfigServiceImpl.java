@@ -47,4 +47,12 @@ public class ParentTypeConfigServiceImpl implements ParentTypeConfigService {
     public ParentTypeConfig findById(String id) {
         return null;
     }
+
+    @Override
+    public ParentTypeConfig findByType(String parentType) {
+        ParentTypeConfigExample example = new ParentTypeConfigExample();
+        example.createCriteria().andParentTypeEqualTo(parentType);
+        List<ParentTypeConfig> parentTypeConfigs = parentTypeConfigMapper.selectByExample(example);
+        return parentTypeConfigs.get(0);
+    }
 }

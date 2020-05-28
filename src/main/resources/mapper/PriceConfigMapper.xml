@@ -4,7 +4,9 @@
   <resultMap id="BaseResultMap" type="com.hxsj.analyse.pojo.PriceConfig" >
     <result column="id" property="id" jdbcType="INTEGER" />
     <result column="parent_type" property="parentType" jdbcType="VARCHAR" />
+    <result column="parent_type_desc" property="parentTypeDesc" jdbcType="VARCHAR" />
     <result column="product_type" property="productType" jdbcType="VARCHAR" />
+    <result column="product_type_desc" property="productTypeDesc" jdbcType="VARCHAR" />
     <result column="price" property="price" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -66,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, parent_type, product_type, price
+    id, parent_type, parent_type_desc, product_type, product_type_desc, price
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hxsj.analyse.pojo.PriceConfigExample" >
     select
@@ -92,10 +94,10 @@
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into hxsj_price_config (parent_type, product_type, price
-      )
-    values (#{parentType,jdbcType=VARCHAR}, #{productType,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER}
-      )
+    insert into hxsj_price_config (parent_type, parent_type_desc, product_type, 
+      product_type_desc, price)
+    values (#{parentType,jdbcType=VARCHAR}, #{parentTypeDesc,jdbcType=VARCHAR}, #{productType,jdbcType=VARCHAR}, 
+      #{productTypeDesc,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.hxsj.analyse.pojo.PriceConfig" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
@@ -106,8 +108,14 @@
       <if test="parentType != null" >
         parent_type,
       </if>
+      <if test="parentTypeDesc != null" >
+        parent_type_desc,
+      </if>
       <if test="productType != null" >
         product_type,
+      </if>
+      <if test="productTypeDesc != null" >
+        product_type_desc,
       </if>
       <if test="price != null" >
         price,
@@ -117,8 +125,14 @@
       <if test="parentType != null" >
         #{parentType,jdbcType=VARCHAR},
       </if>
+      <if test="parentTypeDesc != null" >
+        #{parentTypeDesc,jdbcType=VARCHAR},
+      </if>
       <if test="productType != null" >
         #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="productTypeDesc != null" >
+        #{productTypeDesc,jdbcType=VARCHAR},
       </if>
       <if test="price != null" >
         #{price,jdbcType=INTEGER},
@@ -140,8 +154,14 @@
       <if test="record.parentType != null" >
         parent_type = #{record.parentType,jdbcType=VARCHAR},
       </if>
+      <if test="record.parentTypeDesc != null" >
+        parent_type_desc = #{record.parentTypeDesc,jdbcType=VARCHAR},
+      </if>
       <if test="record.productType != null" >
         product_type = #{record.productType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productTypeDesc != null" >
+        product_type_desc = #{record.productTypeDesc,jdbcType=VARCHAR},
       </if>
       <if test="record.price != null" >
         price = #{record.price,jdbcType=INTEGER},
@@ -155,7 +175,9 @@
     update hxsj_price_config
     set id = #{record.id,jdbcType=INTEGER},
       parent_type = #{record.parentType,jdbcType=VARCHAR},
+      parent_type_desc = #{record.parentTypeDesc,jdbcType=VARCHAR},
       product_type = #{record.productType,jdbcType=VARCHAR},
+      product_type_desc = #{record.productTypeDesc,jdbcType=VARCHAR},
       price = #{record.price,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />

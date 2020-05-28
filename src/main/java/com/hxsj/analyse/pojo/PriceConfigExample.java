@@ -234,6 +234,76 @@ public class PriceConfigExample {
             return (Criteria) this;
         }
 
+        public Criteria andParentTypeDescIsNull() {
+            addCriterion("parent_type_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescIsNotNull() {
+            addCriterion("parent_type_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescEqualTo(String value) {
+            addCriterion("parent_type_desc =", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescNotEqualTo(String value) {
+            addCriterion("parent_type_desc <>", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescGreaterThan(String value) {
+            addCriterion("parent_type_desc >", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescGreaterThanOrEqualTo(String value) {
+            addCriterion("parent_type_desc >=", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescLessThan(String value) {
+            addCriterion("parent_type_desc <", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescLessThanOrEqualTo(String value) {
+            addCriterion("parent_type_desc <=", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescLike(String value) {
+            addCriterion("parent_type_desc like", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescNotLike(String value) {
+            addCriterion("parent_type_desc not like", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescIn(List<String> values) {
+            addCriterion("parent_type_desc in", values, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescNotIn(List<String> values) {
+            addCriterion("parent_type_desc not in", values, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescBetween(String value1, String value2) {
+            addCriterion("parent_type_desc between", value1, value2, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescNotBetween(String value1, String value2) {
+            addCriterion("parent_type_desc not between", value1, value2, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
         public Criteria andProductTypeIsNull() {
             addCriterion("product_type is null");
             return (Criteria) this;
@@ -301,6 +371,76 @@ public class PriceConfigExample {
 
         public Criteria andProductTypeNotBetween(String value1, String value2) {
             addCriterion("product_type not between", value1, value2, "productType");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescIsNull() {
+            addCriterion("product_type_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescIsNotNull() {
+            addCriterion("product_type_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescEqualTo(String value) {
+            addCriterion("product_type_desc =", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescNotEqualTo(String value) {
+            addCriterion("product_type_desc <>", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescGreaterThan(String value) {
+            addCriterion("product_type_desc >", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescGreaterThanOrEqualTo(String value) {
+            addCriterion("product_type_desc >=", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescLessThan(String value) {
+            addCriterion("product_type_desc <", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescLessThanOrEqualTo(String value) {
+            addCriterion("product_type_desc <=", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescLike(String value) {
+            addCriterion("product_type_desc like", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescNotLike(String value) {
+            addCriterion("product_type_desc not like", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescIn(List<String> values) {
+            addCriterion("product_type_desc in", values, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescNotIn(List<String> values) {
+            addCriterion("product_type_desc not in", values, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescBetween(String value1, String value2) {
+            addCriterion("product_type_desc between", value1, value2, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescNotBetween(String value1, String value2) {
+            addCriterion("product_type_desc not between", value1, value2, "productTypeDesc");
             return (Criteria) this;
         }
 

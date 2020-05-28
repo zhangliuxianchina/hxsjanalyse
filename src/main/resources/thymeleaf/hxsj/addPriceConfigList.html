@@ -21,9 +21,8 @@
 
     <form th:action="@{/priceConfig}" method="post">
 
-
         <input type="hidden" name="_method" value="put" th:if="${priceConfig!=null}"/>
-        <input type="hidden" name="id" th:if="${priceConfig!=null}" th:value="${priceConfig.id}" >
+        <input type="hidden" name="id" th:if="${priceConfig!=null}" th:value="${priceConfig.id}"/>
 
         <div class="form-group">
             <label for="id">id</label>
@@ -33,12 +32,14 @@
         <div class="form-group">
             <label for="parentType">parentType</label>
             <select class="form-control" id="parentType" name="parentType">
-                <option th:selected="${priceConfig != null}?${parentT == priceConfig.parentType}" th:value="${parentT}"  th:each="parentT:${parentTypes}" th:text="${parentT}">1</option>
+                <option th:selected="${priceConfig != null}?${parentType.getParentType() == priceConfig.parentType}" th:value="${parentType.getParentType()}"  th:each="parentType:${parentTypes}" th:text="${parentType.getParentTypeDesc()}"></option>
             </select>
         </div>
         <div class="form-group">
             <label for="productType">productType</label>
-            <input name="productType"  th:value="${priceConfig != null } ?  ${ priceConfig.productType}" class="form-control" id="productType" placeholder="productType">
+            <select class="form-control" id="productType" name="productType">
+                <option th:selected="${priceConfig != null}?${productType.getProductType() == priceConfig.productType}" th:value="${productType.getProductType()}"  th:each="productType:${productTypes}" th:text="${productType.getProductTypeDesc()}"></option>
+            </select>
         </div>
         <div class="form-group">
             <label for="price">price</label>

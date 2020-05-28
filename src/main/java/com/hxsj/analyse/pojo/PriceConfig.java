@@ -5,7 +5,11 @@ public class PriceConfig {
 
     private String parentType;
 
+    private String parentTypeDesc;
+
     private String productType;
+
+    private String productTypeDesc;
 
     private Integer price;
 
@@ -25,12 +29,28 @@ public class PriceConfig {
         this.parentType = parentType;
     }
 
+    public String getParentTypeDesc() {
+        return parentTypeDesc;
+    }
+
+    public void setParentTypeDesc(String parentTypeDesc) {
+        this.parentTypeDesc = parentTypeDesc;
+    }
+
     public String getProductType() {
         return productType;
     }
 
     public void setProductType(String productType) {
         this.productType = productType;
+    }
+
+    public String getProductTypeDesc() {
+        return productTypeDesc;
+    }
+
+    public void setProductTypeDesc(String productTypeDesc) {
+        this.productTypeDesc = productTypeDesc;
     }
 
     public Integer getPrice() {

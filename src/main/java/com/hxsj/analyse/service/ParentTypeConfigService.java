@@ -17,4 +17,8 @@ public interface ParentTypeConfigService {
     String delete(String id);
 
     ParentTypeConfig findById(String id);
+
+    ParentTypeConfig findByType(String parentType);
+
+
 }

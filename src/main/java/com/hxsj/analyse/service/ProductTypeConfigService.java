@@ -2,6 +2,7 @@ package com.hxsj.analyse.service;
 
 
 
+import com.hxsj.analyse.pojo.ParentTypeConfig;
 import com.hxsj.analyse.pojo.PriceConfig;
 import com.hxsj.analyse.pojo.ProductTypeConfig;
 
@@ -18,4 +19,6 @@ public interface ProductTypeConfigService {
     String delete(String id);
 
     ProductTypeConfig findById(String id);
+
+    ProductTypeConfig findByType(String productType);
 }

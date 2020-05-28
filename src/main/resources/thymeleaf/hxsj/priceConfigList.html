@@ -39,8 +39,8 @@
         <tbody>
         <tr th:each="priceConfig : ${priceConfigs}">
             <th th:text="${priceConfig.id}">id</th>
-            <td th:text="${priceConfig.parentType}">父类型</td>
-            <td th:text="${priceConfig.productType}">子类型</td>
+            <td th:text="${priceConfig.parentTypeDesc}">父类型</td>
+            <td th:text="${priceConfig.productTypeDesc}">子类型</td>
             <td th:text="${priceConfig.price}">价格</td>
             <td>
                 <a type="button"  class="btn btn-info btn-lg" th:href="@{/toPriceConfig(id=${priceConfig.id})}">修改</a>

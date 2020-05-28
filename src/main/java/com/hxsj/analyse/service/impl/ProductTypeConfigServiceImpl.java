@@ -44,4 +44,12 @@ public class ProductTypeConfigServiceImpl implements ProductTypeConfigService {
     public ProductTypeConfig findById(String id) {
         return null;
     }
+
+    @Override
+    public ProductTypeConfig findByType(String productType) {
+        ProductTypeConfigExample example = new ProductTypeConfigExample();
+        example.createCriteria().andProductTypeEqualTo(productType);
+        List<ProductTypeConfig> productTypeConfigs = productTypeConfigMapper.selectByExample(example);
+        return productTypeConfigs.get(0);
+    }
 }
