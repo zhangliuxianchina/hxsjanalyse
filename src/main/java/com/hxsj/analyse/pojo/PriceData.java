@@ -1,6 +1,6 @@
 package com.hxsj.analyse.pojo;
 
-public class PriceConfigData {
+public class PriceData {
     private Integer id;
 
     private String applyId;
@@ -16,6 +16,12 @@ public class PriceConfigData {
     private String customeEmail;
 
     private Integer price;
+
+    private String isDelete;
+
+    private String parentTypeDesc;
+
+    private String productTypeDesc;
 
     public Integer getId() {
         return id;
@@ -79,5 +85,29 @@ public class PriceConfigData {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public String getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(String isDelete) {
+        this.isDelete = isDelete;
+    }
+
+    public String getParentTypeDesc() {
+        return parentTypeDesc;
+    }
+
+    public void setParentTypeDesc(String parentTypeDesc) {
+        this.parentTypeDesc = parentTypeDesc;
+    }
+
+    public String getProductTypeDesc() {
+        return productTypeDesc;
+    }
+
+    public void setProductTypeDesc(String productTypeDesc) {
+        this.productTypeDesc = productTypeDesc;
     }
 }

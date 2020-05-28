@@ -32,7 +32,7 @@ public class PriceConfigController {
         }
         model.addAttribute("parentTypes",parentTypeConfigService.finds());
         model.addAttribute("productTypes",productTypeConfigService.finds());
-        return "hxsj/addPriceConfigList";
+        return "hxsj/priceConfig/addPriceConfigList";
     }
 
 
@@ -56,7 +56,7 @@ public class PriceConfigController {
     public String insert(Model model) {
         model.addAttribute("parentTypes",parentTypeConfigService.finds());
         model.addAttribute("productTypes",productTypeConfigService.finds());
-        return "hxsj/addPriceConfigList";
+        return "hxsj/priceConfig/addPriceConfigList";
     }
 
     @PostMapping(value = "/priceConfig")//post
@@ -72,7 +72,7 @@ public class PriceConfigController {
     @GetMapping("/priceConfigs")//get
     public String listPriceConfigs(Model model){
         model.addAttribute("priceConfigs",priceConfigservice.finds());
-        return "hxsj/priceConfigList";
+        return "hxsj/priceConfig/priceConfigList";
     }
 
     @GetMapping("/priceConfig")//get

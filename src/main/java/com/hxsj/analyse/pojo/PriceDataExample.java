@@ -3,14 +3,14 @@ package com.hxsj.analyse.pojo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PriceConfigDataExample {
+public class PriceDataExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public PriceConfigDataExample() {
+    public PriceDataExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -641,6 +641,216 @@ public class PriceConfigDataExample {
 
         public Criteria andPriceNotBetween(Integer value1, Integer value2) {
             addCriterion("price not between", value1, value2, "price");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteIsNull() {
+            addCriterion("is_delete is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteIsNotNull() {
+            addCriterion("is_delete is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteEqualTo(String value) {
+            addCriterion("is_delete =", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteNotEqualTo(String value) {
+            addCriterion("is_delete <>", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteGreaterThan(String value) {
+            addCriterion("is_delete >", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteGreaterThanOrEqualTo(String value) {
+            addCriterion("is_delete >=", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteLessThan(String value) {
+            addCriterion("is_delete <", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteLessThanOrEqualTo(String value) {
+            addCriterion("is_delete <=", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteLike(String value) {
+            addCriterion("is_delete like", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteNotLike(String value) {
+            addCriterion("is_delete not like", value, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteIn(List<String> values) {
+            addCriterion("is_delete in", values, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteNotIn(List<String> values) {
+            addCriterion("is_delete not in", values, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteBetween(String value1, String value2) {
+            addCriterion("is_delete between", value1, value2, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsDeleteNotBetween(String value1, String value2) {
+            addCriterion("is_delete not between", value1, value2, "isDelete");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescIsNull() {
+            addCriterion("parent_type_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescIsNotNull() {
+            addCriterion("parent_type_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescEqualTo(String value) {
+            addCriterion("parent_type_desc =", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescNotEqualTo(String value) {
+            addCriterion("parent_type_desc <>", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescGreaterThan(String value) {
+            addCriterion("parent_type_desc >", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescGreaterThanOrEqualTo(String value) {
+            addCriterion("parent_type_desc >=", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescLessThan(String value) {
+            addCriterion("parent_type_desc <", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescLessThanOrEqualTo(String value) {
+            addCriterion("parent_type_desc <=", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescLike(String value) {
+            addCriterion("parent_type_desc like", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescNotLike(String value) {
+            addCriterion("parent_type_desc not like", value, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescIn(List<String> values) {
+            addCriterion("parent_type_desc in", values, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescNotIn(List<String> values) {
+            addCriterion("parent_type_desc not in", values, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescBetween(String value1, String value2) {
+            addCriterion("parent_type_desc between", value1, value2, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andParentTypeDescNotBetween(String value1, String value2) {
+            addCriterion("parent_type_desc not between", value1, value2, "parentTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescIsNull() {
+            addCriterion("product_type_desc is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescIsNotNull() {
+            addCriterion("product_type_desc is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescEqualTo(String value) {
+            addCriterion("product_type_desc =", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescNotEqualTo(String value) {
+            addCriterion("product_type_desc <>", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescGreaterThan(String value) {
+            addCriterion("product_type_desc >", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescGreaterThanOrEqualTo(String value) {
+            addCriterion("product_type_desc >=", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescLessThan(String value) {
+            addCriterion("product_type_desc <", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescLessThanOrEqualTo(String value) {
+            addCriterion("product_type_desc <=", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescLike(String value) {
+            addCriterion("product_type_desc like", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescNotLike(String value) {
+            addCriterion("product_type_desc not like", value, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescIn(List<String> values) {
+            addCriterion("product_type_desc in", values, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescNotIn(List<String> values) {
+            addCriterion("product_type_desc not in", values, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescBetween(String value1, String value2) {
+            addCriterion("product_type_desc between", value1, value2, "productTypeDesc");
+            return (Criteria) this;
+        }
+
+        public Criteria andProductTypeDescNotBetween(String value1, String value2) {
+            addCriterion("product_type_desc not between", value1, value2, "productTypeDesc");
             return (Criteria) this;
         }
     }

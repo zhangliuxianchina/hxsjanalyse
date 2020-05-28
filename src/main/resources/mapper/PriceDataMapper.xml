@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.hxsj.analyse.dao.PriceConfigDataMapper" >
-  <resultMap id="BaseResultMap" type="com.hxsj.analyse.pojo.PriceConfigData" >
-    <result column="id" property="id" jdbcType="INTEGER" />
+<mapper namespace="com.hxsj.analyse.dao.PriceDataMapper" >
+  <resultMap id="BaseResultMap" type="com.hxsj.analyse.pojo.PriceData" >
+    <id column="id" property="id" jdbcType="INTEGER" />
     <result column="apply_id" property="applyId" jdbcType="VARCHAR" />
     <result column="parent_type" property="parentType" jdbcType="VARCHAR" />
     <result column="product_type" property="productType" jdbcType="VARCHAR" />
@@ -10,6 +10,9 @@
     <result column="custome_mobile" property="customeMobile" jdbcType="VARCHAR" />
     <result column="custome_email" property="customeEmail" jdbcType="VARCHAR" />
     <result column="price" property="price" jdbcType="INTEGER" />
+    <result column="is_delete" property="isDelete" jdbcType="VARCHAR" />
+    <result column="parent_type_desc" property="parentTypeDesc" jdbcType="VARCHAR" />
+    <result column="product_type_desc" property="productTypeDesc" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -71,15 +74,15 @@
   </sql>
   <sql id="Base_Column_List" >
     id, apply_id, parent_type, product_type, custome_name, custome_mobile, custome_email, 
-    price
+    price, is_delete, parent_type_desc, product_type_desc
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hxsj.analyse.pojo.PriceConfigDataExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.hxsj.analyse.pojo.PriceDataExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from hxsj_price_config_data
+    from hxsj_price_data
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,28 +90,40 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.hxsj.analyse.pojo.PriceConfigDataExample" >
-    delete from hxsj_price_config_data
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from hxsj_price_data
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from hxsj_price_data
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.hxsj.analyse.pojo.PriceDataExample" >
+    delete from hxsj_price_data
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.hxsj.analyse.pojo.PriceConfigData" >
+  <insert id="insert" parameterType="com.hxsj.analyse.pojo.PriceData" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into hxsj_price_config_data (apply_id, parent_type, product_type, 
+    insert into hxsj_price_data (apply_id, parent_type, product_type, 
       custome_name, custome_mobile, custome_email, 
-      price)
+      price, is_delete, parent_type_desc, 
+      product_type_desc)
     values (#{applyId,jdbcType=VARCHAR}, #{parentType,jdbcType=VARCHAR}, #{productType,jdbcType=VARCHAR}, 
       #{customeName,jdbcType=VARCHAR}, #{customeMobile,jdbcType=VARCHAR}, #{customeEmail,jdbcType=VARCHAR}, 
-      #{price,jdbcType=INTEGER})
+      #{price,jdbcType=INTEGER}, #{isDelete,jdbcType=VARCHAR}, #{parentTypeDesc,jdbcType=VARCHAR}, 
+      #{productTypeDesc,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.hxsj.analyse.pojo.PriceConfigData" >
+  <insert id="insertSelective" parameterType="com.hxsj.analyse.pojo.PriceData" >
     <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into hxsj_price_config_data
+    insert into hxsj_price_data
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="applyId != null" >
         apply_id,
@@ -130,6 +145,15 @@
       </if>
       <if test="price != null" >
         price,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="parentTypeDesc != null" >
+        parent_type_desc,
+      </if>
+      <if test="productTypeDesc != null" >
+        product_type_desc,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -154,16 +178,25 @@
       <if test="price != null" >
         #{price,jdbcType=INTEGER},
       </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="parentTypeDesc != null" >
+        #{parentTypeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="productTypeDesc != null" >
+        #{productTypeDesc,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.hxsj.analyse.pojo.PriceConfigDataExample" resultType="java.lang.Integer" >
-    select count(*) from hxsj_price_config_data
+  <select id="countByExample" parameterType="com.hxsj.analyse.pojo.PriceDataExample" resultType="java.lang.Integer" >
+    select count(*) from hxsj_price_data
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update hxsj_price_config_data
+    update hxsj_price_data
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
@@ -189,13 +222,22 @@
       <if test="record.price != null" >
         price = #{record.price,jdbcType=INTEGER},
       </if>
+      <if test="record.isDelete != null" >
+        is_delete = #{record.isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentTypeDesc != null" >
+        parent_type_desc = #{record.parentTypeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productTypeDesc != null" >
+        product_type_desc = #{record.productTypeDesc,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update hxsj_price_config_data
+    update hxsj_price_data
     set id = #{record.id,jdbcType=INTEGER},
       apply_id = #{record.applyId,jdbcType=VARCHAR},
       parent_type = #{record.parentType,jdbcType=VARCHAR},
@@ -203,9 +245,62 @@
       custome_name = #{record.customeName,jdbcType=VARCHAR},
       custome_mobile = #{record.customeMobile,jdbcType=VARCHAR},
       custome_email = #{record.customeEmail,jdbcType=VARCHAR},
-      price = #{record.price,jdbcType=INTEGER}
+      price = #{record.price,jdbcType=INTEGER},
+      is_delete = #{record.isDelete,jdbcType=VARCHAR},
+      parent_type_desc = #{record.parentTypeDesc,jdbcType=VARCHAR},
+      product_type_desc = #{record.productTypeDesc,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.hxsj.analyse.pojo.PriceData" >
+    update hxsj_price_data
+    <set >
+      <if test="applyId != null" >
+        apply_id = #{applyId,jdbcType=VARCHAR},
+      </if>
+      <if test="parentType != null" >
+        parent_type = #{parentType,jdbcType=VARCHAR},
+      </if>
+      <if test="productType != null" >
+        product_type = #{productType,jdbcType=VARCHAR},
+      </if>
+      <if test="customeName != null" >
+        custome_name = #{customeName,jdbcType=VARCHAR},
+      </if>
+      <if test="customeMobile != null" >
+        custome_mobile = #{customeMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="customeEmail != null" >
+        custome_email = #{customeEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="parentTypeDesc != null" >
+        parent_type_desc = #{parentTypeDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="productTypeDesc != null" >
+        product_type_desc = #{productTypeDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.hxsj.analyse.pojo.PriceData" >
+    update hxsj_price_data
+    set apply_id = #{applyId,jdbcType=VARCHAR},
+      parent_type = #{parentType,jdbcType=VARCHAR},
+      product_type = #{productType,jdbcType=VARCHAR},
+      custome_name = #{customeName,jdbcType=VARCHAR},
+      custome_mobile = #{customeMobile,jdbcType=VARCHAR},
+      custome_email = #{customeEmail,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=VARCHAR},
+      parent_type_desc = #{parentTypeDesc,jdbcType=VARCHAR},
+      product_type_desc = #{productTypeDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -21,7 +21,7 @@
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://47.104.157.32:3306/hxsj"
                         userId="root"
-                        password="root">
+                        password="hxsj">
         </jdbcConnection>
 
         <!-- 生成实体类的包名和位置 -->
@@ -41,7 +41,7 @@
         </javaClientGenerator>
 
         <!-- 生成表： tableName 表名或视图名 、domainObjectName 实体类名  -->
-        <table tableName="hxsj_price_config" domainObjectName="PriceConfig">
+        <table tableName="hxsj_price_data" domainObjectName="PriceData">
             <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
         </table>
 

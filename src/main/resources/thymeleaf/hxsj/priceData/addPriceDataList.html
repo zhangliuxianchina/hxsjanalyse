@@ -1,0 +1,77 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>添加价格列表</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet"
+          href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <style>
+        body{
+            padding: 80px;
+            color: ghostwhite;
+            background-color: darkgray;
+        }
+    </style>
+</head>
+
+<body>
+<div class="table-responsive">
+
+    <form th:action="@{/priceData}" method="post">
+
+        <input type="hidden" name="_method" value="put" th:if="${priceData!=null}"/>
+        <input type="hidden" name="id" th:if="${priceData!=null}" th:value="${priceData.id}"/>
+        <input type="hidden" name="isDelete"  th:value="0"/>
+
+        <div class="form-group">
+            <label for="id">id</label>
+            <input name="id"  class="form-control" readonly="true"  th:value="${priceData != null} ?  ${priceData.id}" id="id" placeholder="id">
+        </div>
+
+        <div class="form-group">
+            <label for="applyId">applyId</label>
+            <input name="applyId" th:value="${priceData != null} ? ${priceData.applyId}" class="form-control" id="applyId" placeholder="申请编号">
+        </div>
+
+        <div class="form-group">
+            <label for="parentType">parentType</label>
+            <select class="form-control" id="parentType" name="parentType">
+                <option th:selected="${priceData != null}?${parentType.getParentType() == priceData.parentType}" th:value="${parentType.getParentType()}"  th:each="parentType:${parentTypes}" th:text="${parentType.getParentTypeDesc()}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="productType">productType</label>
+            <select class="form-control" id="productType" name="productType">
+                <option th:selected="${priceData != null}?${productType.getProductType() == priceData.productType}" th:value="${productType.getProductType()}"  th:each="productType:${productTypes}" th:text="${productType.getProductTypeDesc()}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="customeName">customeName</label>
+            <input name="customeName" th:value="${priceData != null} ? ${priceData.customeName}" class="form-control" id="customeName" placeholder="客户姓名">
+        </div>
+        <div class="form-group">
+            <label for="customeMobile">customeMobile</label>
+            <input name="customeMobile" th:value="${priceData != null} ? ${priceData.customeMobile}" class="form-control" id="customeMobile" placeholder="客户手机号">
+        </div>
+        <div class="form-group">
+            <label for="customeEmail">customeEmail</label>
+            <input name="customeEmail" th:value="${priceData != null} ? ${priceData.customeEmail}" class="form-control" id="customeEmail" placeholder="客户邮箱">
+        </div>
+
+        <div class="form-group">
+            <label for="price">price</label>
+            <input name="price" th:value="${priceData != null} ? ${priceData.price}" class="form-control" id="price" placeholder="price">
+        </div>
+
+
+        <button type="submit" th:text="${priceData == null?'添加':'修改'}"   class="btn btn-success">添加</button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
